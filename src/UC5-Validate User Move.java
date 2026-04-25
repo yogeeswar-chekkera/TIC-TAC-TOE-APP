@@ -1,39 +1,29 @@
-#include <iostream>
-using namespace std;
+public class TicTacToe {
 
-/*
- * TicTacToe
- * UC5 validates whether a move is inside the board boundaries
- * and whether the selected cell is empty.
- */
+    // 3x3 board initialized with empty cells '-'
+    static char[][] board = {
+        {'-', '-', '-'},
+        {'-', '-', '-'},
+        {'-', '-', '-'}
+    };
 
-class TicTacToe {
-public:
-    // 3x3 board initialized with empty cells ('-')
-    static char board[3][3];
+    // Entry point
+    public static void main(String[] args) {
 
-    /*
-     * Entry point of the program.
-     * Tests the validation logic using sample row and column values.
-     */
-    static void run() {
-        int row = 1, col = 1; // Example position
+        int row = 1;  // Example input
+        int col = 1;
 
         if (isValidMove(row, col)) {
-            cout << "Move is valid" << endl;
+            System.out.println("Valid move!");
         } else {
-            cout << "Move is invalid" << endl;
+            System.out.println("Invalid move!");
         }
     }
 
-    /*
-     * Checks if the given row and column are within bounds
-     * and if the target cell is empty.
-     * Input: row, col
-     * Output: true if valid, false otherwise
-     */
-    static bool isValidMove(int row, int col) {
-        // Boundary check (0–2)
+    // Method to validate the move
+    static boolean isValidMove(int row, int col) {
+
+        // Check boundary (0–2)
         if (row < 0 || row > 2 || col < 0 || col > 2) {
             return false;
         }
@@ -45,16 +35,4 @@ public:
 
         return true;
     }
-};
-
-// Initialize static board
-char TicTacToe::board[3][3] = {
-    {'-', '-', '-'},
-    {'-', '-', '-'},
-    {'-', '-', '-'}
-};
-
-int main() {
-    TicTacToe::run();
-    return 0;
 }
