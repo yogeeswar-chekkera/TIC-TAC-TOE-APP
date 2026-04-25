@@ -1,39 +1,24 @@
-#include <iostream>
-using namespace std;
+import java.util.Scanner;
 
-/*
- * TicTacToe
- * UC3 reads a slot number (1–9) entered by the user.
- * This use case focuses only on input handling without validation.
- */
+public class TicTacToe {
 
-class TicTacToe {
-public:
-
-    /*
-     * Entry point of the program.
-     * Reads slot input and prints it back
-     * to verify correct user input handling.
-     */
-    static void run() {
+    // Entry point of the program
+    public static void main(String[] args) {
         int slot = getUserSlot();
-        cout << "Slot entered: " << slot << endl;
+        System.out.println("Slot entered: " + slot);
     }
 
-    /*
-     * Reads an integer slot value from the user.
-     * Output: Slot number (1–9)
-     * (No validation included here)
-     */
+    // Method to get user slot input (1–9)
     static int getUserSlot() {
+        Scanner scanner = new Scanner(System.in);
         int slot;
-        cout << "Enter a slot number (1-9): ";
-        cin >> slot;
+
+        System.out.print("Enter a slot number (1-9): ");
+
+        // Read input
+        slot = scanner.nextInt();
+
+        // (Basic version as per requirement – no validation loop)
         return slot;
     }
-};
-
-int main() {
-    TicTacToe::run();
-    return 0;
 }
