@@ -1,46 +1,25 @@
-#include <iostream>
-using namespace std;
+public class TicTacToe {
 
-/*
- * TicTacToe
- * UC4 converts a user-entered slot number (1–9) into corresponding
- * row and column indices of a 3x3 board.
- */
+    // Entry point
+    public static void main(String[] args) {
+        int slot = 7; // Example slot (you can change this)
 
-class TicTacToe {
-public:
+        int row = getRowFromSlot(slot);
+        int col = getColFromSlot(slot);
 
-    /*
-     * Entry point of the program.
-     * Demonstrates slot-to-index conversion using a sample slot value.
-     */
-    static void run() {
-        int slot = 7;  // Example slot
-
-        cout << "Row: " << getRowFromSlot(slot) << endl;
-        cout << "Column: " << getColFromSlot(slot) << endl;
+        System.out.println("Slot: " + slot);
+        System.out.println("Row: " + row);
+        System.out.println("Column: " + col);
     }
 
-    /*
-     * Converts slot number into row index using zero-based indexing.
-     * Input: Slot number (1–9)
-     * Output: Row index (0–2)
-     */
+    // Convert slot number to row index (0–2)
     static int getRowFromSlot(int slot) {
+        // (slot - 1) because slot starts from 1
         return (slot - 1) / 3;
     }
 
-    /*
-     * Converts slot number into column index using modulo operation.
-     * Input: Slot number (1–9)
-     * Output: Column index (0–2)
-     */
+    // Convert slot number to column index (0–2)
     static int getColFromSlot(int slot) {
         return (slot - 1) % 3;
     }
-};
-
-int main() {
-    TicTacToe::run();
-    return 0;
 }
